@@ -114,7 +114,7 @@ deploy_stack "$INFRA_STACK_NAME" "$INFRA_TEMPLATE_FILE" --parameter-overrides La
 infra_exit_code=$?
 
 echo "🔧 Starting deployment of Cognito stack..."
-deploy_stack "$COGNITO_STACK_NAME" "$COGNITO_TEMPLATE_FILE"
+deploy_stack "$COGNITO_STACK_NAME" "$COGNITO_TEMPLATE_FILE" --parameter-overrides UserPoolName="CustomerSupportGatewayPool" MachineAppClientName="CustomerSupportMachineClient" WebAppClientName="CustomerSupportWebClient"
 cognito_exit_code=$?
 
 echo "✅ Deployment complete."
